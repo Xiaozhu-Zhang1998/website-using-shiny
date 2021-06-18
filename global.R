@@ -1,0 +1,6 @@
+thesis <- read.table("thesis.csv", sep = ',', header = T)
+pubs <- read.table("pubs.csv", sep = ',', header = T)
+pre <- read.table("pre.csv", sep = ',', header = T)
+class1 <- read.table("class1.csv", sep = ',', header = T)
+class2 <- read.table("class2.csv", sep = ',', header = T)
+empty <- data.frame(Date = character(), Name = character(), Password = character())
