@@ -50,9 +50,9 @@ shinyServer(function(input, output, session) {
     # paper page ----
     output$pubpage <- renderUI({
         tabsetPanel(
-            tabPanel("Thesis", dataTableOutput("thesistable")),
-            tabPanel("Publications", dataTableOutput("pubstable")),
-            tabPanel("Preprints", dataTableOutput("pretable"))
+            tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
+            tabPanel(tags$b("Publications"), dataTableOutput("pubstable")),
+            tabPanel(tags$b("Preprints"), dataTableOutput("pretable"))
         )
     })
     

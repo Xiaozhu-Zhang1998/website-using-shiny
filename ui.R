@@ -4,7 +4,12 @@ library(shinyalert)
 
 shinyUI(dashboardPage(
     
-    dashboardHeader(title = "My Personal Website", titleWidth = 250, disable = FALSE),
+    dashboardHeader(title = "My Personal Website", titleWidth = 250, disable = FALSE,
+                    tags$li(class = "dropdown", tags$a(href = "https://www.facebook.com", icon("facebook"), "Facebook", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://www.twitter.com", icon("twitter"), "Twitter", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com", icon("linkedin"), "LinkedIn", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://www.github.com", icon("github"), "GitHub", target = "_blank"))
+                    ),
     
     dashboardSidebar(
         sidebarMenu(
