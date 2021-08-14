@@ -1,6 +1,9 @@
 library(shiny)
 library(shinydashboard)
 library(shinyalert)
+library(shinyjs)
+library(shinyBS)
+library(shinycssloaders)
 
 shinyUI(dashboardPage(
     
@@ -44,12 +47,24 @@ shinyUI(dashboardPage(
                      status = "success", solidHeader = T, collapsible = T)
              )),
              
-             tabItem(tabName = "misc", uiOutput("miscpage")),
+             tabItem(tabName = "misc", 
+                     fluidRow(
+                         box(width = 8, title = "Media Center", status = "success", solidHeader = T, collapsible = T, collapsed = T,
+                             tags$iframe(width="630", height="370", src="https://youtube.com/embed/zZffa_Z_Cxs", frameborder="1", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen=NA))
+                     ),
+                     fluidRow(
+                         box(width = 6, title = "Draw the histogram!", status = "danger", solidHeader = T, collapsible = T,
+                             fileInput("file", "Upload the dataset (please make sure that each column variable is continuous)"),
+                             uiOutput("histui")
+                             )
+                             
+                     )),
              
              tabItem(tabName = "cv", tags$iframe(style = "height: 1100px; width: 100%; scrolling = yes",
                                                  src = "CV-Template.pdf"))
 
         )
+
     )
     
 ))
