@@ -4,6 +4,7 @@ library(shinyalert)
 library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
+library(ggplot2)
 
 shinyUI(dashboardPage(
     

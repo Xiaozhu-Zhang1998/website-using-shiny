@@ -4,6 +4,7 @@ library(shinyalert)
 library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
+library(ggplot2)
 
 shinyServer(function(input, output, session) {
     
@@ -114,7 +115,7 @@ shinyServer(function(input, output, session) {
             t2 = textInput("password", "Please input your password", width = "40%"),
             u2 = useShinyalert(),
             a1 = actionButton("make", "Make an appointment"),
-            a2 = actionButton("check", "Check an appointment"),
+            a2 = actionButton("check", "Check appointments"),
             a3 = actionButton("del", "Delete the appointment")
         )
         return(lst)
@@ -214,7 +215,7 @@ shinyServer(function(input, output, session) {
     
     output$plot_gg <- renderPlot({
         ggplot(data = data_uploaded()) +
-            geom_histogram(bins = input$bins, aes_string(x = input$data_names)) +
+            geom_histogram(bins = input$bins, aes(x = get(input$data_names))) +
             ggtitle("Histogram") +
             xlab(paste(input$data_names, " & number of bins as ", input$bins)) +
             ylab("Frequency") +
